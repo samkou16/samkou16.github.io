@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Samuel Voľanský">
+    <title>Moja Stranka</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            background: black;
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 50px 0;
+        }
+        header h1 {
+            font-size: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .header-shadow {
+            height: 20px;
+            background: linear-gradient(to bottom, #E33678FF, black);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+        }
+        .zaciatok {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 0;
+            flex: 1;
+        }
+        .ja, .obchod, .slider-box, .kontakt {
+            background-color: black;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px #E33678FF;
+            padding: 40px;
+            margin-bottom: 40px;
+        }
+        .ja {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+        .jaobrazok {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #2D4085FF;
+            box-shadow: 0 4px 8px #E33678FF;
+        }
+        .text {
+            max-width: 600px;
+            margin-left: 30px;
+        }
+        .text h2, .obchod h2, .kontakt h3 {
+            font-size: 2rem;
+            color: #2D4085FF;
+            margin-bottom: 20px;
+            text-shadow: 0px 2px 3px #E33678FF;
+            text-align: center;
+        }
+        .text p, .kontakt p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            line-height: 1.7;
+            color: white;
+        }
+        .obchod-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .produkty {
+            flex: 1 1 calc(33% - 20px);
+            background-size: cover;
+            background-position: center;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px #2D4085FF;
+            transition: transform 0.3s ease;
+            color: white;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            position: relative;
+        }
+        .produkty:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px #E33678FF;
+        }
+        .produkty-text {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 15px;
+            border-radius: 12px;
+            text-align: right;
+            max-width: 90%;
+        }
+        .produkty-text h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: #E33678FF;
+        }
+        .produkty-text p {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            color: white;
+        }
+        .cena {
+            font-weight: bold;
+            font-size: 1rem;
+            color: #E33678FF;
+        }
+        .tlacitko {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #2D4085FF;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+        .tlacitko:hover {
+            background-color: #E33678FF;
+        }
+        .kontakt a {
+            text-decoration: none;
+            color: #E33678FF;
+            transition: color 0.3s ease;
+        }
+        .kontakt a:hover {
+            color: #E33678FF;
+        }
+        footer {
+            background-color: #2D4085FF;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .slider-box {
+            overflow: hidden;
+            position: relative;
+        }
+        .slide-track {
+            display: flex;
+            animation: scroll 40s linear infinite;
+            width: calc(250px * 14);
+        }
+        .slide {
+            width: 250px;
+            height: 150px;
+            margin-right: 20px;
+            border-radius: 12px;
+            object-fit: cover;
+            border: 4px solid #2D4085FF;
+            box-shadow: 0 4px 8px #E33678FF;
+        }
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .produkty.motm {
+            background-image: url('motm.png');
+        }
+        .produkty.pots {
+            background-image: url('pots.png');
+        }
+
+        @media (max-width: 768px) {
+            .ja, .obchod-grid {
+                flex-direction: column;
+                text-align: center;
+            }
+            .text {
+                margin-left: 0;
+            }
+            .produkty {
+                justify-content: center;
+                align-items: center;
+            }
+            .produkty-text {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>VITAJ NA MOJEJ STRÁNKE</h1>
+    </header>
+
+    <div class="header-shadow"></div>
+
+    <div class="zaciatok">
+
+        <div class="ja">
+            <img src="ja.jpg" alt="Moja fotka" class="jaobrazok">
+            <div class="text">
+                <h2>O MNE</h2>
+                <p>Volám sa Samuel Voľanský a som študent gymnázia Alejová 1 Košice. Veľmi sa zaujímam o futbal a športy, tiež sa rád venujem 3D modelovaniu, kresleniu a programovaniu.</p>
+                <p>V oblasti futbalu a 3D modelovania mám viacero rokov skúseností. Mojím cieľom je neustále sa zlepšovať a prichádzať s novými nápadmi, ktoré by pomohli môjmu kariérnemu rastu.</p>
+            </div>
+        </div>
+
+        <div class="slider-box">
+            <div class="slide-track">
+                <img src="brighton.png" class="slide" alt="brighton">
+                <img src="mci.png" class="slide" alt="mci">
+                <img src="leeds.png" class="slide" alt="leeds">
+                <img src="rennes.jpg" class="slide" alt="rennes">
+                <img src="barcelona.jpg" class="slide" alt="barcelona">
+                <img src="spfc.jpg" class="slide" alt="spfc">
+                <img src="realmadrid.jpg" class="slide" alt="realmadrid">
+                <img src="brighton.png" class="slide" alt="brighton">
+                <img src="mci.png" class="slide" alt="mci">
+                <img src="leeds.png" class="slide" alt="leeds">
+                <img src="rennes.jpg" class="slide" alt="rennes">
+                <img src="barcelona.jpg" class="slide" alt="barcelona">
+                <img src="spfc.jpg" class="slide" alt="spfc">
+                <img src="realmadrid.jpg" class="slide" alt="realmadrid">
+            </div>
+        </div>
+
+        <div class="obchod">
+            <h2>MÔJ OBCHOD</h2>
+            <div class="obchod-grid">
+                <div class="produkty-motm">
+                    <div class="produkty-text">
+                        <h3>MOTM Trophy</h3>
+                        <p>Custom Man Of The Match trofej<br>s logom tvojho tímu</p>
+                        <p class="cena">CENA: 15€/ks</p>
+                        <a href="motm.html" class="tlacitko" target="_blank">Objednať</a>
+                    </div>
+                </div>
+                <div class="produkty pots">
+                    <div class="produkty-text">
+                        <h3>POTS Trophy</h3>
+                        <p>Custom Player Of The Season trofej<br>s logom tvojho tímu</p>
+                        <p class="cena">CENA: 25€/ks</p>
+                        <a href="pots.html" class="tlacitko" target="_blank">Objednať</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="kontakt">
+            <h3>Kontaktuj ma</h3>
+            <p>Email: <a href="mailto:motmtrophies@gmail.com" target="_blank">motmtrophies@gmail.com</a></p>
+            <p>Telefón: +421 XXX XXX XXX</p>
+            <p>Instagram: <a href="https://www.instagram.com/motm_trophies" target="_blank">@motm_trophies</a></p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Samuel Voľanský. Všetky práva vyhradené.</p>
+    </footer>
+
+</body>
+</html>

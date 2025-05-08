@@ -11,6 +11,9 @@
             padding: 0;
             box-sizing: border-box;
         }
+        html {
+            scroll-behavior: smooth;
+        }
         body {
             font-family: 'Roboto', sans-serif;
             line-height: 1.6;
@@ -30,6 +33,22 @@
             font-size: 3rem;
             text-transform: uppercase;
             letter-spacing: 2px;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        nav a {
+            color: #E33678FF;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #2D4085FF;
         }
         .header-shadow {
             height: 20px;
@@ -206,14 +225,22 @@
 <body>
 
     <header>
-        <h1>VITAJ NA MOJEJ STRÁNKE</h1><img src="cierna.jpg" alt="xxx">
+        <h1>VITAJ NA MOJEJ STRÁNKE</h1>
+        <nav>
+            <ul>
+                <li><a href="#o-mne">O mne</a></li>
+                <li><a href="#obchod">Obchod</a></li>
+                <li><a href="#kontakt">Kontakt</a></li>
+            </ul>
+        </nav>
+        <img src="cierna.jpg" alt="xxx">
     </header>
 
     <div class="header-shadow"></div>
 
     <div class="zaciatok">
 
-        <div class="ja">
+        <div class="ja" id="o-mne">
             <img src="ja.jpg" alt="Moja fotka" class="jaobrazok">
             <div class="text">
                 <h2>O MNE</h2>
@@ -241,7 +268,7 @@
             </div>
         </div>
 
-        <div class="obchod">
+        <div class="obchod" id="obchod">
             <h2>MÔJ OBCHOD</h2>
             <div class="obchod-grid">
                 <div class="produkty motm">
@@ -263,7 +290,7 @@
             </div>
         </div>
 
-        <div class="kontakt">
+        <div class="kontakt" id="kontakt">
             <h3>Kontaktuj ma</h3>
             <p>Email: <a href="mailto:motmtrophies@gmail.com" target="_blank">motmtrophies@gmail.com</a></p>
             <p>Telefón: +421 XXX XXX XXX</p>
